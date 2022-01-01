@@ -12,6 +12,12 @@ const ProductList = () => {
     const response = await axios.get("http://localhost:5000/products");
     setProduct(response.data);
   };
+
+  const deleteProduct = async (id) => {
+    await axios.delete(`http://localhost:5000/products/${id}`);
+    getProducts();
+  };
+
   return (
     <div>
       <Link to="/add" className="button is-primary mt-2">
@@ -39,7 +45,12 @@ const ProductList = () => {
                 >
                   Edit
                 </Link>
-                <button className="button is-small is-danger">Delete</button>
+                <button
+                  onClick={() => deleteProduct(produc.id)}
+                  className="button is-small is-danger"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
