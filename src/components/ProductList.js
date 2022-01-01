@@ -33,7 +33,12 @@ const ProductList = () => {
               <td>{produc.title}</td>
               <td>{produc.price}</td>
               <td>
-                <button className="button is-small is-info">Edit</button>
+                <Link
+                  to={`edit/${produc.id}`}
+                  className="button is-small is-info"
+                >
+                  Edit
+                </Link>
                 <button className="button is-small is-danger">Delete</button>
               </td>
             </tr>
