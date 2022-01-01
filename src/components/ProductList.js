@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const ProductList = () => {
   const [products, setProduct] = useState([]);
 
@@ -13,6 +14,9 @@ const ProductList = () => {
   };
   return (
     <div>
+      <Link to="/add" className="button is-primary mt-2">
+        Add New
+      </Link>
       <table className="table is-striped is-fullwidth">
         <thead>
           <tr>
