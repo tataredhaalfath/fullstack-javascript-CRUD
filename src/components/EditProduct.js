@@ -7,9 +7,9 @@ export const EditProduct = () => {
   const history = useHistory();
   const { id } = useParams();
 
-  const saveProduct = async (e) => {
+  const updateProduct = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/products", {
+    await axios.put(`http://localhost:5000/products/${id}`, {
       title: title,
       price: price,
     });
@@ -25,9 +25,10 @@ export const EditProduct = () => {
   useEffect(() => {
     getProductById();
   }, []);
+
   return (
     <div>
-      <form onSubmit={saveProduct}>
+      <form onSubmit={updateProduct}>
         <div className="field">
           <label className="label">Title</label>
           <input
